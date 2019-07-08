@@ -5,7 +5,7 @@ import FirstComponent from './components/FirstComponent.vue'
 
 Vue.config.productionTip = false
 
-Vue.component("Komponent",FirstComponent);
+Vue.component("mineComponent",FirstComponent);
 
 new Vue({
   router,
