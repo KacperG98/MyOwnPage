@@ -1,5 +1,5 @@
 <template>
-  <div class="text-light">
+  <div class="text-light container">
     <mineComponent msg="Welcome in My WebSite"/>
     <h1>I'm Kacper</h1>
     <div id="content" class="jumbotron text-dark">
@@ -23,7 +23,10 @@ export default {
 <style scoped>
 #content{
   background: rgba(255, 255, 255, 0.7);
-  margin: 0% 10% 0% 10%;
+  margin: 0% 5% 0% 5%;
+}
+.jumbotron {
+  min-height: 80vh;
 }
 </style>
 

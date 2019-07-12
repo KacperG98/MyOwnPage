@@ -6,6 +6,10 @@
     <p>If you are here, you're probably an employer or a recruiter. <br>
     <small>That's good because my person has interested you</small></p>
 
+    <!-- more self presentation -->
+    
+    <p>Other information about me can you find in "My Ability" section in the menu</p>
+    <p>If you want to contact me go to the "Link" section</p>
   </div>
 </template>
 
@@ -14,4 +18,10 @@ export default {
   name: 'About'
 }
 </script>
+
+<style scoped>
+.container {
+  min-height: 100vh;
+}
+</style>
 

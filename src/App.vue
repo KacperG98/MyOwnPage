@@ -12,8 +12,8 @@
               <i class="fas fa-times"></i>
             </div>
           </div>
-          <div class="sidebar-header">
-            <!-- ////////////////////////////////////////////////////////////////////// -->
+          <div class="sidebar-header text-light">
+            &copy Created by <br> Kacper Gmurczyk <br> all rights reserved
           </div>
           <div class="sidebar-menu">
             <ul>
@@ -50,14 +50,41 @@
       </nav>
       <main class="page-content">
           <img alt="Vue logo" class="rounded-circle img-thumbnail" src="https://media.licdn.com/dms/image/C4E03AQHbLYeiqR7pnQ/profile-displayphoto-shrink_200_200/0?e=1567641600&v=beta&t=-NoEDgoHaO81lM3s0Iz-lxSC3Hf1V4JW9_9doTUIqRU">
-          <br>
+          <transition name="fade" mode="out-in" @beforeLeave="beforeLeave" @enter="enter" @afterEnter="afterEnter">
           <router-view></router-view>
+          </transition>
       </main>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      prevHeight: 0,
+    };
+  },
+  methods: {
+    beforeLeave(element) {
+      this.prevHeight = getComputedStyle(element).height;
+    },
+    enter(element) {
+      const { height } = getComputedStyle(element);
+
+      element.style.height = this.prevHeight;
+
+      setTimeout(() => {
+        element.style.height = height;
+      });
+    },
+    afterEnter(element) {
+      element.style.height = 'auto';
+    },
+  },
+};
+
 jQuery(function($) {
   $(".sidebar-dropdown > a").click(function() {
     $(".sidebar-submenu").slideUp(200);
@@ -88,11 +115,19 @@ jQuery(function($) {
     $(".page-wrapper").addClass("toggled");
   });
 });
-export default {};
 </script>
 
 
 <style>
+.fade-enter-active,
+ .fade-leave-active {
+   transition-duration: 0.4s;
+   transition-property: opacity;
+   transition-property: height, opacity;
+   transition-timing-function: ease;
+   overflow: hidden;
+ }
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -104,6 +139,7 @@ export default {};
 img{
   height: 100px;
   width: 100px;
+  margin: 5px;
 }
 
 body {

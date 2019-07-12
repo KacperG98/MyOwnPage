@@ -1,5 +1,5 @@
 <template>
-    <div class="jumbotron">
+    <div class="jumbotron container">
         
         <a class="text-dark bg-light" style="margin: 5px;" ref="https://github.com/KacperG98">
             <i class="fab fa-github fa-2x"></i>
@@ -21,6 +21,10 @@ export default {
 </script>
 
 <style scoped>
+
+.jumbotron {
+  min-height: 100vh;
+}
 
 </style>
 

@@ -14,5 +14,10 @@ export default {
 </script>
 
 <style scoped>
-
+h1{
+  transition: 0.3s;
+}
+h1:hover{
+  transform: scale(1.5);
+}
 </style>
